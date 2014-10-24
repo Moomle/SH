@@ -1,0 +1,22 @@
+.colffa14f{color: #ffa14f;}
+.ui-bg-1{background: url("http://img.kuaidihelp.com/www/hz/ui-bg-1.png") no-repeat;display: inline-block;width: 60px;height: 60px;vertical-align:middle;}
+.ui-bg-1.title-no-bg{background-position:-68px -43px;height: 30px;left: 82px;position: absolute;top: 13px;width: 30px;}
+.ui-bg-1.history-bg{background-position: -97px -44px; height: 30px;width: 30px;}
+.ui-bg-1.user-bg{background-position:6px 0px;height: 50px;}
+.ui-bg-1.tool-bg{background-position:-4px -79px;margin-right: 10px;}
+.ui-bg-1.dialogue-bg{background-position:-67px -79px;margin-right: 10px;}
+.oblique-triangle-bg{border-right:8px solid #FFFFFF;border-top: 7px solid transparent;border-bottom: 7px solid transparent;height: 0;position: absolute;top:44px;right:0;width: 0;}
+.oblique-triangle-bg.col-orang{border-left:8px solid #66c1f7;top:43px;right:-16px;}
+.reg-tip-info h4.line-bg{color: #333333;font-size: 18px;line-height: 50px;background: url('http://img.kuaidihelp.com/www/hz/line-bg.png') no-repeat center;width:907px;margin: 0 auto 20px auto;text-align: center}
+.reg-tip-info .tip-height{background: #fff;border-radius: 3px;text-align: center;overflow: hidden;color: #333333;}
+.reg-tip-info .left-tip{height:60px;width: 140px;background: #ffa14f;float: left;padding: 20px;font-size:16px;color: #fff;position: relative;}
+.reg-tip-info .rig-tip{line-height:60px;height:60px;float: left;padding: 20px;font-size: 18px;}
+.reg-tip-info .rig-tip span{font-size: 18px;}
+.logon-wrap.reg-new-sty .ui-input-item .input-box .point {left: 50px;}
+.logon-wrap.reg-new-sty .ui-input-item .ipt-size {left: 50px;width: 256px;}
+/***a.login-btnµ½a.login-btna**/
+a.login-btna{width: 155px;height: 40px;line-height: 40px;font-size: 16px; display:block;text-align: center;margin: 20px auto;background: #3ba0d2;color: #fff;border-radius: 3px;}
+.logon-right {height: 160px;margin-top: 44px;padding: 30px 0;width: 390px;}
+.vertical-line{height: 100px; background:#66c1f7;position: relative;width:4px; margin-left: 10px;}
+.btnBox-new{width:148px;height: 58px;border: 2px solid #66c1f7;background:#66c1f7; margin-top: 19px;}
+.btnBox-new .btn{ background: no-repeat -65px 19px #66c1f7;text-indent:30px;font-size: 20px; float: left;line-height: 56px;height: 56px;}

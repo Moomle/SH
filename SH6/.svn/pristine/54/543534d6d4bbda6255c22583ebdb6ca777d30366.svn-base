@@ -1,0 +1,173 @@
+/*前台当前位置*/
+.current-position{height:40px;line-height:40px;font-family:"微软雅黑";font-size:12px;}
+.current-position ul,.current-position ul li,.current-position ul li strong,.current-position ul li a,.current-position ul li span{float:left;}
+.current-position ul li strong{color:#666;font-weight:normal;}
+.current-position ul li a{padding:0px 5px;}
+.current-position ul li span{color:#999;padding:0px 5px;}
+.current-position ul li h1,.current-position ul li span{color:#999;padding:0px 5px;font-weight:normal;font-size:12px;}
+.arrow-right{float:left;background:url('http://img.kuaidihelp.com/www/new/user_icon.png') no-repeat left -67px;width:7px;height:7px;margin:18px 5px 0px;overflow:hidden;}
+.page-list li a, .page-list .ellipsis span{ color:#666;}
+
+
+
+/*错误提醒框*/
+.ui-err .arrow,.ui-err .err-txt,.ui-err-line .arrow,.ui-err-line .err-txt,.ui-err-dn .arrow,.ui-err-dn .err-txt,.quyu_msg{background:url('http://img.kuaidihelp.com/www/new/common.png') no-repeat;overflow:hidden;}
+.ui-err,.ui-err-line,.ui-err-dn{float:left;position:relative;background:#fffaec;border:1px solid #f3d8bd;height:34px;line-height:34px;margin-left:10px;border-radius:3px;}
+.ui-err-line{margin:10px 0px 0px 80px; }
+.ui-err .arrow{background-position:left -26px;width:5px;height:8px;position:absolute;left:-5px;top:8px;}
+.ui-err .err-txt,.ui-err-line .err-txt,.ui-err-dn .err-txt,.quyu_msg{background-position:-6px -8px;color:#6d686e;padding:0px 10px 0px 20px;}
+.ui-err-line .arrow{background-position:left top;width:8px;height:5px;position:absolute;left:10px;top:-5px;}
+.ui-err-dn .arrow{position:absolute;left:11px;top:34px;background-position:left -40px;width:8px;height:5px;}
+
+/*按钮*/
+
+.button,.button .btn,.button1,.button1 .btn1,.logon-button,.lg-btn,.frag-button,.frag-btn{float:left;background:url('http://img.kuaidihelp.com/www/new/global_btn.png') no-repeat;cursor:pointer;overflow:visible;font-family:"微软雅黑";}
+.button{background-position:left top;height:40px;line-height:40px;}
+.button .btn{background-position:right -44px;color:#fff;height:40px;line-height:40px;}
+.button .btn-padding{padding:0px 60px;}
+.button1{background-position:left -105px;height:25px;line-height:25px;}
+.button1 .btn1{background-position:right -137px;color:#fff;height:25px;line-height:25px;}
+.button1 .btn1-padding{padding:0px 16px;}
+.logon-button{background-position:left -178px;height:40px;line-height:40px;margin:20px 0px 0px 5px;}
+.lg-btn{background-position:right -230px;color:#fff;}
+.lg-btn:hover{color:#fff;}
+.frag-button{background-color:#fff;background-position:left -274px;height:36px;line-height:36px;}
+.frag-btn{background-position:right -312px;color:#fff!important;height:36px;line-height:36px;}
+.padding23{padding:0px 23px;}
+.padding27{padding:0px 27px;}
+.padding33{padding:0px 33px;}
+.padding40{padding:0px 40px;}
+.padding46{padding:0px 46px;}
+.padding60{padding:0px 60px;}
+.padding20{padding:0px 20px!important;}
+
+
+/*步骤*/
+
+.step1,.step2,.step3{float:left;background:url('http://img.kuaidihelp.com/www/new/exp_step.png') no-repeat;width:980px;height:55px;overflow:hidden;}
+.step1{background-position:left top;}
+.step2{background-position:left -55px;}
+.step3{background-position:left -110px;}
+.step1 li,.step2 li,.step3 li{float:left;line-height:55px;color:#999;}
+.em1{margin-left:30px;}
+.em2{margin-left:108px;}
+.em3{margin-left:96px;}
+.step1 .em1,.step2 .em2,.step3 .em3,.step3 .em2{color:#84b534}
+
+
+/*信息填写*/
+
+.ui-input-item{float:left;color:#666;line-height:34px;}
+.ui-input-item label{float:left;width:70px;text-align:right;}
+.ipt-size{float:left;width:289px;height:34px;margin-left:4px;line-height:34px;text-indent:10px;border:1px solid #ddd;border-radius:2px;}
+.use-correct{float:left;margin-left:10px;line-height:34px;}
+.use-correct .correct,.con-tick{float:left;background:url('http://img.kuaidihelp.com/www/new/mark.png') no-repeat;overflow:hidden;}
+.use-correct .correct{background-position:left -72px;width:12px;height:12px;margin-top:11px;}
+.use-correct .cor-txt{float:left;color:#666;padding-left:5px;}
+.con-tick{background-position:left top;width:46px;height:46px;}
+
+
+/*弹出提示层*/
+
+.alert-point-layer{position:absolute;left:50%;margin-left:-260px;top:-10px;background:#fff;width:520px;height:300px;border:1px solid #ddd;color:#666;z-index:5;}
+.point-layer-hd{height:49px;line-height:49px;border-bottom:1px dashed #dadada;}
+.point-layer-hd h4{float:left;padding-left:20px;font-size:16px;font-weight:normal;}
+.ui-close{float:right;background:url('http://img.kuaidihelp.com/www/new/send_express.png') no-repeat;width:22px;height:22px;margin:8px 10px 0px 0px;overflow:hidden;}
+.ui-close{background-position:-13px -56px;}
+.ui-close:hover{background-position:-72px -92px;}
+.point-info{padding-top:32px;}
+.point-info p{line-height:35px;text-align:center;}
+.point-info .button{margin:28px 0px 0px 192px;}
+/*翻页*/
+/*.pre-nolink i, .pre-page i, .next-nolink i, .next-page i{background:url('http://img.kuaidihelp.com/www/new/page_ico.png') no-repeat !important;overflow:hidden;}*/
+.pre-page i{ background-position:0 -17px !important;}
+.next-page i{ background-position:-14px 0 !important;}
+.page-list{float:right;height:34px;margin-top:30px;display:inline;}
+.page-list li,.page-list li a,.page-list .ellipsis span{float:left;}
+.page-list .ellipsis span a{ color:#666;}
+.page-list li{line-height:32px;margin-right:10px;color:#999;}
+.page-list li a,.page-list .ellipsis span{background-color:#fff;border:1px solid #ddd;padding:0px 13px;}
+.page-list li a:hover{background-color:#f5f5f5;color:#666;}
+.page-list .pre-page{margin-right:10px;}
+.page-list .pre-nolink{margin-right:10px;}
+.pre-page i,.pre-nolink i{display:inline-block;width:6px;height:11px;margin:8px 5px 2px 0px;*margin-bottom:0px;vertical-align:middle; position:absolute;}
+.next-page i, .next-nolink i{display:inline-block;width:6px;height:11px;margin:8px 0px 2px 5px;*margin-bottom:0px;vertical-align:middle; position:absolute;}
+.pre-nolink i{background-position:left top;}
+.next-nolink i{background-position:right -17px;}
+.pre-page a, .next-page a{border:1px solid #ddd;color:#666; position:relative;}
+.pre-page a:hover,.next-page a:hover{color:#46A4D9!important;}
+.page-list .pre-nolink a,.page-list .next-nolink a{border:1px solid #f5f5f5;color:#ddd;cursor:default;}
+body .page-list .pre-page a:hover,body .page-list .next-page a:hover{background-color:#fff;color:#666;}
+body .page-list .pre-nolink a:hover,body .page-list .next-nolink a:hover{background-color:#fff;color:#ddd}
+.page-list .cur a,.page-list .cur a:hover{background:#46a4d9;color:#fff;border:1px solid #46a4d9;}
+.page-list .ellipsis span{color:#999;cursor:default;}
+.page-num{background-color:#fff;width:44px;height:32px;line-height:32px;margin:0px 2px;text-align:center;border:1px solid #ddd;color:#666;box-shadow:none;}
+.pg-sbt{background:url('http://img.kuaidihelp.com/www/new/page_bg.png') no-repeat left top;width:67px;height:34px;line-height:32px;margin:0px 18px 0px 8px;text-align:center;color:#666;box-shadow:none;cursor:pointer;overflow:hidden;font-family:"微软雅黑";}
+
+
+/*省份城市*/
+.prvc-city{background:#fff;width:336px;line-height:25px;position:absolute;left:0px;top:0px;border:1px solid #ded9dd;z-index:99999999;}
+.prvc-city .cur{background:#46A4D9;color:#fff;}
+.prvc-city .cur span{color:#fff;}
+.area-head{height:28px;line-height:28px;border-bottom:1px solid #4ca2dd;}
+.area-head a{float:left;padding:0px 25px;font-size:14px;color:#303030; cursor:pointer;}
+.area-head .first{margin-left:12px;}
+.area-head .now{background:#46a4d8;color:#fff;}
+.area-head .tab{ float:left;}
+
+.city-odb-letter{width:310px;margin:0px auto 15px;}
+.city-odb-letter dl{float:left;margin-top:10px;}
+.city-odb-letter dl dt{float:left;width:30px;color:#55a8d4;}
+.city-odb-letter dl dd{float:left;width:280px;margin-top:0px;}
+.city-odb-letter a{float:left;color:#6b6b6b;width:60px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;}
+.offen-used-city{margin:10px auto;}
+.offen-used-city a{font-size:12px;color:#676767;line-height:25px;color:#333; cursor:pointer;}
+.offen-used-city a span{color:#999;}
+
+/*我要发快递按钮*/
+
+.exp-button{background: url("http://img.kuaidihelp.com/www/new/exp_btn.png") no-repeat scroll left top transparent;color: #FFFFFF;display: inline-block;height: 40px;line-height: 40px;overflow: hidden;text-indent: 20px;width: 140px;}
+
+
+/*常用区域，常用品牌*/
+
+.kd-used-area{float:left;background:#fff;width:310px;border:2px solid #ddd;position:absolute;left:-2px;top:36px;z-index:5;}
+.kd-area-blk{float:left;padding:6px;line-height:24px;}
+.kd-area-blk a{float:left;height:24px;line-height:24px;padding:2px 8px;cursor:pointer;}
+.kd-area-blk .cur{background:#46A4D8;color:#fff;}
+
+/*无查询结果*/
+.no-rst{width:627px;height:300px;background:#fff;border:1px solid #ddd;}
+.no-rst em{float:left;background:url('http://img.kuaidihelp.com/www/new/depress.png') no-repeat left center;width:93px;height:93px;margin:104px 0px 0px 90px;overflow:hidden;}
+.no-rst .sorry-con{float:left;margin:120px 0px 0px 20px;display:inline;}
+.no-rst p{color:#999!important;font-size:18px;line-height:30px;}
+
+
+/*QQ交谈*/
+.talk-online,.talk-offline{background:url('http://img.kuaidihelp.com/www/new/wd_chaxun.png') no-repeat;display:inline-block;width:83px;height:25px;line-height:25px;color:#333;text-indent:28px;vertical-align:middle;font-size:12px;}
+.talk-online{background-position:left -233px;margin-right:10px;}
+.talk-offline{background-position:left -290px;}
+.qq-middle{margin-right:10px;}
+.qq-middle img{vertical-align:middle;}
+
+/*友情提醒*/
+
+.frd-warn{height:36px;line-height:36px;font-size:12px;}
+.frd-warn p{background:url('http://img.kuaidihelp.com/www/new/send_express.png') no-repeat -115px -1px;color:#666;text-indent:25px;overflow:hidden;}
+.frd-warn p strong{color:#ffa149;}
+
+/*意见反馈*/
+.feedback{width:91px;position:fixed;left:50%;margin-left:500px;top:30%;color:#333;font-size:13px;}
+.feedback a,.feedback a:hover{float:left;background:url('http://img.kuaidihelp.com/www/new/btn_yijian.png') no-repeat;width:91px;height:51px;line-height:38px;color:#333;overflow:hidden;text-indent:28px;}
+.feedback a{background-position:-16px -16px;}
+.feedback a:hover{background-position:-16px -72px;}
+.feedback span{float:left;width:91px;text-indent:20px;cursor:default;}
+
+.shade-mask{z-index:40!important;}
+.pre-page a i{ left:11px;top: 3px !important; display:none;}
+.next-page a i{ right:11px;top: 3px !important; display:none;}
+.area-head .biaoqian3_r, .area-head .biaoqian4_r, .area-head .biaoqian3_s, .area-head .biaoqian4_s{ display:none;}
+.area-head a.now{ display:inline !important;}
+.area-head a.now.red{background:red;}
+.city-odb-letter a:hover{ color:#46A4D9; cursor:pointer;}
+.city-odb-letter a.cur:hover{ color:#fff;}

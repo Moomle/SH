@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 9, 2006 6:27:53 PM by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="ffof.express.model.Order" table="t_order">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="ord_num" type="string" column="ord_num" unique="true"></property>
+        <property name="cur_phone" type="string" column="cur_phone"></property>
+        <property name="org_name" type="string" column="org_name"></property>
+        <property name="org_plc" type="string" column="org_plc"></property>
+        <property name="org_phone" type="string" column="org_phone"></property>
+        <property name="dst_plc" type="string" column="dst_plc"></property>
+        <property name="dst_name" type="string" column="dst_name"></property>
+        <property name="dst_phone" type="string" column="dst_phone"></property>
+        <property name="crt_time" type="timestamp" column="crt_time"></property>
+        <property name="stat" type="string" column="stat"></property>
+    </class>
+</hibernate-mapping>
