@@ -82,7 +82,7 @@ public class MessageController {
 	@RequestMapping(value="/{cPhone}/unread", method=RequestMethod.GET, params="ajax")
 	@ResponseBody
 	public List<Message> getReadResponse(@PathVariable String cPhone){
-		System.out.println("messageContrller /{cPhone}/read?ajax called");
+		//System.out.println("messageContrller /{cPhone}/read?ajax called");
 		try{
 			List<Message> list = messageService.getUnRead(cPhone);
 			return list;
@@ -96,32 +96,32 @@ public class MessageController {
 	@ResponseBody
 	public List<User> getMessangers(Model model){
 		User u = (User)model.asMap().get("loginUser");
-		System.out.println(u.getTelephone());
+		//System.out.println(u.getTelephone());
 		List<User> list = userService.findAllExceptSelf(u);
-		System.out.println(list.size());
+		//System.out.println(list.size());
 		return list;
 	}
 	
 	@RequestMapping(value="/send", method=RequestMethod.POST)
 	@ResponseBody
 	public String send(String content, String recvPhones, String postPhone){
-		System.out.println(recvPhones);
+		//System.out.println(recvPhones);
 		Pattern p = Pattern.compile("\\d{11}");
 		Matcher m = p.matcher(recvPhones);
 		int size = 0;
 		while(m.find()){
 			++size;
 		}
-		System.out.println(size);
+		//System.out.println(size);
 		String[] ss = new String[size];
 		m = p.matcher(recvPhones);
 		size=0;
 		while(m.find()){
 			ss[size++] = m.group();
 		}
-		for(String s:ss){
+		/*for(String s:ss){
 			System.out.println(s);
-		}
+		}*/
 		try{
 			for(int i=0; i<ss.length; i++){
 				Message msg = new Message();
@@ -159,7 +159,7 @@ public class MessageController {
 		User u = (User) model.asMap().get("loginUser");
 		if (u==null) throw new MessageException("请登录！");
 		List<Message> list = messageService.getHistoryMessage(u.getTelephone());
-		System.out.println("histroy" + "," + list.toString());
+		//System.out.println("histroy" + "," + list.toString());
 		return list;
 	}
 	
@@ -175,8 +175,8 @@ public class MessageController {
 	
 	@RequestMapping(value="/read",method=RequestMethod.POST, params="ajax")
 	@ResponseBody
-	public String read(int id){
-		System.out.println("/read?ajax");
+	public String read(long id){
+		//System.out.println("/read?ajax");
 		try{
 			messageService.read(id);
 			return "success";
@@ -186,5 +186,18 @@ public class MessageController {
 		}
 	}
 	
+	@RequestMapping(value="/del", method=RequestMethod.POST)
+	@ResponseBody
+	public String delete(long[] msgId){
+		//System.out.println(msgId.length);
+		try{
+			for(long i: msgId){
+				messageService.delete(i);
+			}
+			return "success";
+		} catch (Exception e){
+			throw new MessageException("消息删除失败");
+		}
+	}
 	
 }

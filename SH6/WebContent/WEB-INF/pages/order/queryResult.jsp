@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <form method="post" action="" id="">
     <%@ include file="../userTopIndex.jsp" %>
-    <div class="main">
+    <div class="main" style="height:500px">
     	<div class="main_left">
                 <div class="main_left_box">
                     <div class="main_left_top">&nbsp;</div>

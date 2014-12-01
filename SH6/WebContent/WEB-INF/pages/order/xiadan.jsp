@@ -4,17 +4,20 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>订单管理</title> 
     <link href="<%=path %>/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=path %>/css/common1.css" rel="stylesheet" type="text/css" />
-    <link href="<%=path %>/css/common.css" rel="stylesheet" type="text/css" />    
+    <link href="<%=path %>/css/common.css" rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" href="<%=path %>/css/tabbable.css" type="text/css" />  
   	<script type="text/javascript" src="<%=path %>/js/jquery-1.8.2.js"></script>
   	<script type="text/javascript" src="<%=path %>/js/bootstrap.min.js" ></script>
   	<script type="text/javascript" src="<%=path %>/js/verify-order.js" ></script>
+    <script type="text/javascript" src="<%=path %>/js/respond.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/html5shiv.min.js"></script>
   	<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
   	<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%> 
   	<style>
@@ -32,21 +35,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-color:#66c1f7}
 		.err-txt{
 		color:red;}
+		.pp{
+		color:#08c;
+		text-align:center;
+		font-size:15px}
   	</style>
   </head>
   
   <body>
     <%@ include file="../userTopIndex.jsp" %>
-    <div class="main" style="height:400px">
+    <div class="main" style="height:500px">
     	<div class="main_middle_local" style="margin-left:20px;margin-top:5px">
   		</div>
     	<div class="row" style="margin-top:20px">
   			<div class="col-sm-2" style="left:55px">
-    			<ul class="nav nav-tabs" role="tablist" style="width:98px;height:42px;" id="myTab">
-    				<li style="width:98px;height:42px" class="active"><a href="#home" role="tab" data-toggle="tab" >订单录入</a></li>
-    				<li style="width:98px;height:42px"><a href="#messages" role="tab" data-toggle="tab" >订单修改</a></li>
-    				<li style="width:98px;height:42px"><a href="#profile"  role="tab" data-toggle="tab">订单更新</a></li>
-    			</ul>
+  				<div class="tabbable tabs-left">
+  					<ul class="nav nav-tabs" role="tablist"  id="myTab">
+    				<li  class="active">
+    					<a href="#home" role="tab" data-toggle="tab" >
+    						<p class="pp">订单录入</p>
+    					</a>
+    				</li>
+    				<li >
+    					<a href="#messages" role="tab" data-toggle="tab" >
+    					<p class="pp">订单修改</p>
+    					</a>
+    				</li>
+    				<li >
+    					<a href="#profile"  role="tab" data-toggle="tab">
+    					<p class="pp">订单更新</p>
+    					</a>
+    				</li>
+    				</ul>
+  				</div>
+    			
   			</div>
 			<div class="col-sm-9" >
   				<div class="tab-content" style="padding-left:100px;padding-top:0px;">
@@ -257,6 +279,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 <script>
   $(function () {
+	  
+	  $("#ord_num_up").blur(function(){
+		  console.log("ss");
+		  cordnumExist();
+	  });
+	  
 	  $("#submitUpdate").click(function(){
 	<%-- 	  var ord_num = $("#ord_num_up").val();
 		  var location =  $("#plc_up").val();
@@ -272,7 +300,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  }
 		  }); --%>
 		
-		  	cordnumup();
+		 	cordnumExist();
 			cplcup();
 			ccurphoneup();
 			console.log(isOrdNumUp+","+isPlcUp+","+isCurPhoneUp);

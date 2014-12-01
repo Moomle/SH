@@ -96,7 +96,7 @@ public class LocationDao implements ILocationDao {
 
 			List<Location> locations = session.createQuery("select loc from Location loc where ord_num =?")
 					.setParameter(0, ord_num).list();
-			System.out.println(locations.size());
+			//System.out.println(locations.size());
 			
 			tx.commit();
 			return locations;

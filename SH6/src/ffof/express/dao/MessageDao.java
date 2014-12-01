@@ -50,13 +50,27 @@ public class MessageDao implements IMessageDao {
 	}
 
 	@Override
-	public void update(int id) {
+	public void update(long id) {
 		
 	}
 
 	@Override
-	public void delete(int id) {
-		
+	public void delete(long id) {
+		Session session = HibernateUtils.getSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			
+			Message m = getById(id);
+			session.delete(m);
+			
+			tx.commit();
+		} catch (RuntimeException e){
+			tx.rollback();
+			throw e;
+		} finally {
+			session.close();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -107,7 +121,7 @@ public class MessageDao implements IMessageDao {
 	}
 
 	@Override
-	public void read(int id) {
+	public void read(long id) {
 		Message msg = getById(id);
 		msg.setIsRead(1);
 		msg.setReadDate(new Date());
@@ -129,7 +143,7 @@ public class MessageDao implements IMessageDao {
 	}
 
 	@Override
-	public Message getById(int id) {
+	public Message getById(long id) {
 		Session session = HibernateUtils.getSession();
 		Transaction tx = null;
 		try{
@@ -195,7 +209,7 @@ public class MessageDao implements IMessageDao {
 					.setParameter(1, 1).list().size();
 			pager.setCurPageNum(curPageNum);
 			pager.setTotalCount(totalCount);
-			System.out.println(pager.toString());
+			//System.out.println(pager.toString());
 			tx.commit();
 			return pager;
 		} catch(RuntimeException e){
@@ -228,7 +242,7 @@ public class MessageDao implements IMessageDao {
 					.setParameter(1, 0).list().size();
 			pager.setCurPageNum(curPageNum);
 			pager.setTotalCount(totalCount);
-			System.out.println(pager.toString());
+			//System.out.println(pager.toString());
 			tx.commit();
 			return pager;
 		} catch(RuntimeException e){

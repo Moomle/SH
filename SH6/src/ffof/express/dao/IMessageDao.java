@@ -11,13 +11,13 @@ public interface IMessageDao {
 	
 	public void sendToAll(String content, String postPhone);
 	
-	public void update(int id);
+	public void update(long id);
 
-	public void delete(int id);
+	public void delete(long id);
 	
-	public void read(int id);
+	public void read(long id);
 	
-	public Message getById(int id);
+	public Message getById(long id);
 	
 	public List<Message> getUnreadMessages(String recvPhone);
 	

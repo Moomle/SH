@@ -37,9 +37,6 @@ public class UserService implements IUserService{
 	@Override
 	public void update(User user) {
 		// TODO Auto-generated method stub
-		
-		String psw = MD5Util.md5Signature(user.getPassword());
-		user.setPassword(psw);
 		userDao.update(user);
 	}
 
@@ -64,7 +61,7 @@ public class UserService implements IUserService{
 	@Override
 	public User login(String telephone, String password) {
 		String pwd = MD5Util.md5Signature(password);
-		System.out.println(pwd);
+		//System.out.println(pwd);
 		User u = userDao.getByPhone(telephone);
 		if (null == u) throw new UserException("用户不存在！");
 		if (!u.getPassword().equals(pwd)) throw new UserException("密码错误");

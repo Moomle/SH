@@ -32,13 +32,13 @@ public class MessageService implements IMessageService{
 	}
 
 	@Override
-	public void update(int id) {
+	public void update(long id) {
 		messageDao.update(id);
 	}
 
 	@Override
-	public void delete(int id) {
-		
+	public void delete(long id) {
+		messageDao.delete(id);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class MessageService implements IMessageService{
 	}
 
 	@Override
-	public void read(int id) {
+	public void read(long id) {
 		// TODO Auto-generated method stub
 		messageDao.read(id);
 	}

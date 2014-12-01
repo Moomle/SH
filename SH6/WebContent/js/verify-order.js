@@ -13,8 +13,8 @@ var isPlcUp = false;
 var isCurPhoneUp = false;
 //订单修改前查询变量
 var isOrdNumSearch = false;
-var projName = "SH5";
-var path = location.href.split("/"+projName+"/")[0] +"/"+ projName + "/";
+
+
 
 $(document).ready(function(){
 
@@ -130,7 +130,7 @@ $(document).ready(function(){
 			isOrdNum = false;
 		}
 		else{
-			$.get(path+'order/'+ordnum+"/isExist",{"ord_num":ordnum},function(data){
+			$.get(location.href+"/"+ordnum+"/isExist",{"ord_num":ordnum},function(data){
 				if(data == 'success'){
 					$("#ord_num").show();
 					$("#ord_num_error").show().find(".err-txt").text("该订单已存在！");
@@ -145,6 +145,37 @@ $(document).ready(function(){
 			}
 		} 
 	}
+	
+	function cordnumExist(){
+		
+		ordnum = $("#ord_num_up").val();
+		if (ordnum == '') {
+			$("#ord_num_up").show();
+			$("#ord_num__up_error").show().find(".err-txt").text("订单号不能为空");
+			isOrdNum = false;
+		} 
+		else{
+			var patrn = /^\d{12}$/;
+			if(!(patrn.exec(ordnum))){
+				$("#ord_num_up").show();
+				$("#ord_num_up_error").show().find(".err-txt").text("订单号长度为12位");
+				isOrdNum = false;
+			}
+			else {
+				$.get(location.href+"/"+ordnum+"/isExist",{"ord_num":ordnum},function(data){
+					if(data == 'success'){
+						$("#ord_num_up_error").hide();
+						isOrdNum = true;
+					}
+					else{
+						$("#ord_num_up").show();
+						$("#ord_num_up_error").show().find(".err-txt").text("该订单不存在！");
+						isOrdNum = false;
+					}
+				});
+				}
+			} 
+		}
 
 	/**
 	 * 验证寄件人信息
@@ -155,6 +186,11 @@ $(document).ready(function(){
 	if (orgname == '') {
 		$("#org_name").show();
 		$("#org_name_error").show().find(".err-txt").text("寄件人不能为空");
+		isOrgName = false;
+	} 
+	else if (orgname.length >20) {
+		$("#org_name").show();
+		$("#org_name_error").show().find(".err-txt").text("寄件人长度不能超过20");
 		isOrgName = false;
 	} 
 	else {
@@ -191,8 +227,8 @@ $(document).ready(function(){
 			$("#org_plc_error").show().find(".err-txt").text("地址不能为空");
 			isOrgPlc = false;
 		}
-		else if(orgplc.length > 30){
-				$("#org_plc_error").show().find(".err-txt").text("地址过长");
+		else if(orgplc.length > 40){
+				$("#org_plc_error").show().find(".err-txt").text("地址长度不能超过40");
 				isOrgPlc = false;
 			}
 		else{
@@ -212,6 +248,11 @@ $(document).ready(function(){
 			$("#dst_name_error").show().find(".err-txt").text("寄件人不能为空");
 			isDstName = false;
 		} 
+		else if (dstname.length > 20) {
+			$("#dst_name").show();
+			$("#dst_name_error").show().find(".err-txt").text("寄件人长度不能超过20");
+			isDstName = false;
+		}
 		else {
 				$("#dst_name_error").hide();
 				isDstName = true;
@@ -246,8 +287,8 @@ $(document).ready(function(){
 				$("#dst_plc_error").show().find(".err-txt").text("地址不能为空");
 				isDstPlc = false;
 			}
-			else if(dstplc.length > 30){
-					$("#dst_plc_error").show().find(".err-txt").text("地址过长");
+			else if(dstplc.length > 40){
+					$("#dst_plc_error").show().find(".err-txt").text("地址长度不能超过40");
 					isDstPlc = false;
 				}
 			else{
@@ -345,8 +386,8 @@ $(document).ready(function(){
 				$("#plc_up_error").show().find(".err-txt").text("地址不能为空");
 				isPlcUp = false;
 			}
-			else if(plcup.length > 30){
-					$("#plc_up_error").show().find(".err-txt").text("地址过长");
+			else if(plcup.length > 40){
+					$("#plc_up_error").show().find(".err-txt").text("地址长度不能超过40");
 					isPlcUp = false;
 				}
 			else{

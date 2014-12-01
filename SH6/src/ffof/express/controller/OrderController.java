@@ -57,7 +57,7 @@ public class OrderController {
 		return "order/modify";
 	}
 	
-	@RequestMapping(value="/{ord_num}/isExist", method=RequestMethod.GET)
+	@RequestMapping(value="/manage/{ord_num}/isExist", method=RequestMethod.GET)
 	@ResponseBody
 	public String ordIsExist(@PathVariable String ord_num){
 		Order order = orderService.getByOrderNum(ord_num);
@@ -68,7 +68,7 @@ public class OrderController {
 		}
 	}
 	
-	@RequestMapping(value="/{ord_num}/modify", method=RequestMethod.POST, params="ord_num")
+	@RequestMapping(value="/{ord_num}/modify", method=RequestMethod.POST)
 	public String posUpdatePage(@PathVariable String ord_num,@Validated Order order, BindingResult br){
 		if(br.hasErrors()){
 			return "order/modify";
@@ -87,10 +87,11 @@ public class OrderController {
 		loc.setLocation(location);
 		loc.setOrd_num(ord_num);
 		loc.setOperation(operation);
-		Order order = orderService.getByOrderNum(ord_num);
-		order.setStat(operation);
-		orderService.update(order);
+		
 		try{
+			Order order = orderService.getByOrderNum(ord_num);
+			order.setStat(operation);
+			orderService.update(order);
 			orderService.update(loc);
 			return "success";
 		} catch (Exception e){

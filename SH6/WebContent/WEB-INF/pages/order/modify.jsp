@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="<%=path %>/js/jquery-1.8.2.js"></script>
   	<script type="text/javascript" src="<%=path %>/js/bootstrap.min.js" ></script>
   	<script type="text/javascript" src="<%=path %>/js/modify-order.js" ></script>
+    <script type="text/javascript" src="<%=path %>/js/html5shiv.min.js"></script>
+<%--     <script type="text/javascript" src="<%=path %>/css/bootstrap-ie7.css"></script> --%>
+    <script type="text/javascript" src="<%=path %>/js/respond.min.js"></script>
   	<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
   	<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%> 
   	<style>
@@ -37,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%@ include file="../userTopIndex.jsp" %>
-    <div class="main" style="height:400px">
+    <div class="main" style="height:500px">
     	<div class="main_middle_local" style="margin-left:20px;margin-top:5px">
   		</div>
     	<div class="row" style="margin-top:20px">
@@ -46,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-sm-9" >
   				<div class="tab-content" style="padding-left:100px;padding-top:0px;">
     				<div class="tab-pane active" id="home">
-    					<sf:form modelAttribute="order" class="form-horizontal" id="form" role="form" method="post" action="">
+    					<sf:form modelAttribute="order" class="form-horizontal" id="form" role="form" method="post">
     						<sf:input path="id" type="hidden"/> 
     						<div class="form-group">
     							<label class="col-sm-2 control-label">
@@ -144,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     								快递员电话:
     							</label>
     							<div class="col-sm-4">
-    								<sf:input path="cur_phone" id="cur_phone_modify" class="form-control"  value="" />
+    								<sf:input path="cur_phone" id="cur_phone_modify" class="form-control"/>
     								<sf:errors path="cur_phone"></sf:errors>
     							</div>
     							<div style="display:none;" class="ui-err" id="cur_phone_modify_error">
@@ -161,6 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     				</div>
   				</div>
 			</div>
+			<button>AjaxTestFormAndPojo</button>
 	</div>
 <script>
   $(function () {

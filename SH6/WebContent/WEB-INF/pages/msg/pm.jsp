@@ -4,22 +4,23 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>站内信</title> 
     <link href="<%=path %>/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<%=path %>/css/common1.css" rel="stylesheet" type="text/css" />
-    <link href="<%=path %>/css/common.css" rel="stylesheet" type="text/css" />    
+    <link href="<%=path %>/css/common1.css" rel="stylesheet" type="text/css" />   
+    <link href="<%=path %>/css/common.css" rel="stylesheet" type="text/css" /> 
     <link rel="stylesheet" href="<%=path %>/css/pagination.css" type="text/css" />
+    <link rel="stylesheet" href="<%=path %>/css/tabbable.css" type="text/css" />
   	<script type="text/javascript" src="<%=path %>/js/jquery-1.8.2.js"></script>
   	<script type="text/javascript" src="<%=path %>/js/bootstrap.min.js" ></script>
   	<script type="text/javascript" src="<%=path %>/js/jquery.pagination.js" ></script>
   	<script type="text/javascript" src="<%=path %>/js/verify-system.js" ></script>
     <script type="text/javascript" src="<%=path %>/js/html5shiv.min.js"></script>
+<%--     <script type="text/javascript" src="<%=path %>/css/bootstrap-ie7.css"></script> --%>
     <script type="text/javascript" src="<%=path %>/js/respond.min.js"></script>
-    <script type="text/javascript" src="<%=path %>/css/bootstrap-ie7.css"></script>
   	<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
   	<style>
   		.ctltable{
@@ -36,6 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		float:right;
 		background-color:#66c1f7;
 		color:#fff}
+		.pp{
+		color:#08c;
+		text-align:center;
+		font-size:15px}
+		
+		
   	</style>
   	<script>
   	$(function(){
@@ -50,9 +57,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			var postPhone = tds.eq(1).text();
   			var content = tds.eq(2).text();
   			var sentDate = tds.eq(3).text();
-  			$("#modal-msg-sentPhone").empty().text(postPhone);
-  			$("#modal-msg-content").empty().text(content);
-  			$("#modal-msg-sentDate").empty().text(sentDate);
+  			$(".modal-msg-sentPhone").empty().text(postPhone);
+  			$(".modal-msg-content").empty().text(content);
+  			$(".modal-msg-sentDate").empty().text(sentDate);
   			$(this).attr("data-toggle","modal");
   			$(this).attr("data-target","#myModal");
   			$("#modal-msg-subread").click(function(){
@@ -64,6 +71,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				$("#tagRead").click();
   			});
   		});
+  		
+  		$("body").on("click",".hmsgcnt",function(){
+  			var msgshowmodal = $(this).parent();
+  			var tds = msgshowmodal.children();
+  			var msgid = tds.eq(0).children().attr("value");
+  			var postPhone = tds.eq(1).text();
+  			var content = tds.eq(2).text();
+  			var sentDate = tds.eq(3).text();
+  			$(".modal-msg-sentPhone").empty().text(postPhone);
+  			$(".modal-msg-content").empty().text(content);
+  			$(".modal-msg-sentDate").empty().text(sentDate);
+  			$(this).attr("data-toggle","modal");
+  			$(this).attr("data-target","#hisModal");
+  		});
+  		
   		
   		function getHistoryPage(){
   			
@@ -93,37 +115,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			});
   		}
   			
-  			
-  		//点击历史消息tab不带分页
-  		/* $("#tabhistory").click(function(){
-  			
-  			var curNetAddr = window.document.location.href;
-  	  		var curPageNum = 1; 
-  	  		$.ajax({
-  	  			url:curNetAddr + "?history&curPageNum="+curPageNum,
-  	  			dataType:"json",
-  	  			type:"get",
-  	  			success: function(data){
-  	  				if (data.length == 0){
-  	  					$("#profile-body").empty().text("没有历史消息");
-  	  				} else {
-  	  					$("#profile-body").empty();
-  	  					for (var i=0; i<data.length; i++){
-  	  						$("#profile-body").append("<tr id='"+data[i].postPhone+"' data='"+data[i].id+"'><td>"+data[i].postPhone +"</td><td class='hmsgcnt'>" + data[i].content + "</td><td>" + data[i].sentDate + "</td></tr>");
-  	  					}
-  	  					
-  	  				}
-  	  			},
-  	  			error: function(d){
-  	  				alert("failed");
-  	  			}
-  	  		});
-  		}); */
-  		
   		//点击历史消息tab带分页
-  		
   		function initHisPager(){
-  			
   	  	 	$.ajax({   
 	             type: "get",    
 	             url: location.href,  
@@ -141,9 +134,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							$("#profile-body").empty().append("没有历史消息");
 					 } else {
 						$("#profile-body").empty();
-						for (var i=0; i<data.data.length; i++){
-							$("#profile-body").append("<tr id='"+data.data[i].postPhone+"' data='"+data.data[i].id+"'><td>"+data.data[i].postPhone +"</td><td class='hmsgcnt'>" + data.data[i].content + "</td><td>" + data.data[i].sentDate + "</td></tr>");
-						}
+						$("#profile-body").append("<tr id='"+data.data[i].postPhone+"' data='"+data.data[i].id+"'><td><input type='checkbox' name='msgId' value='"+
+									data.data[i].id+"' /></td><td>"+
+									data.data[i].postPhone +"</td><td class='hmsgcnt'>" + data.data[i].content + "</td><td>" +
+									new Date(data.data[i].sentDate).toLocaleString() + "</td></tr>");
 					}
 	                 
 	             },
@@ -154,7 +148,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		}
   		
   		initHisPager();
-  		
   		
   		$("#tabhistory").click(function(){
   			var curPageNum;
@@ -197,7 +190,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	  					 } else {
   	  						$("#profile-body").empty();
   	  						for (var i=0; i<data.data.length; i++){
-  	  							$("#profile-body").append("<tr id='"+data.data[i].postPhone+"' data='"+data.data[i].id+"'><td>"+data.data[i].postPhone +"</td><td class='hmsgcnt'>" + data.data[i].content + "</td><td>" + new Date(data.data[i].sentDate).toLocaleString() + "</td></tr>");
+  	  							$("#profile-body").append("<tr id='"+data.data[i].postPhone+"' data='"+data.data[i].id+"'><td><input type='checkbox' name='msgId' value='"+
+  	  									data.data[i].id+"' /></td><td>"+
+  	  									data.data[i].postPhone +"</td><td class='hmsgcnt' style='cursor:pointer'>" + data.data[i].content + "</td><td>" +
+  	  									new Date(data.data[i].sentDate).toLocaleString() + "</td></tr>");
   	  						}
   	  					}
   	  	                 
@@ -324,8 +320,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		//分页显示未读消息
   		
+  		//全选
+  		$("#his-tagall").click(function(){
+			$("#profile input[name='msgId']").attr("checked","checked");
+		});
   		
+  		$("#his-ctag").click(function(){
+  			$("#profile input[name='msgId']").removeAttr("checked");
+  		});
   		
+  		$("#his-delall").click(function(){
+  			var form = $("#profile form");
+  			var pdata = [];
+  			$("#profile input[name='msgId']").each(function(){
+  				pdata.push($(this).attr("value"));
+  			});
+  			$.post("<%=path %>/msg/del", form.serializeArray(), function(data){
+  				alert(data); 
+  				initHisPager();
+  				$("#tabhistory").click();
+  			});
+  			
+  		});
   		
   	});
   			
@@ -351,16 +367,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%@ include file="../userTopIndex.jsp" %>
-    <div class="main" style="height:500px">
+    <div class="main" style="height:550px">
     	<div class="row" style="margin-top:20px">
   			<div class="col-sm-2" style="left:55px">
-    			<ul class="nav nav-tabs" role="tablist" style="width:98px;height:42px;" id="myTab">
-    				<li id="tabunread" style="width:98px;height:42px;background-color:#CCD8DB" class="active"><a href="#home" role="tab" data-toggle="tab">未读消息</a></li>
-    				<li id="tabhistory" style="width:98px;height:42px;background-color:#CCD8DB"><a href="#profile"  role="tab" data-toggle="tab">已读消息</a></li>
-    				<li id="tabsend" style="width:98px;height:42px;background-color:#CCD8DB"><a href="#messages"  role="tab" data-toggle="tab">发送消息</a></li>
-    			</ul>
+  				<div class="tabbable tabs-left">
+  					<ul class="nav nav-tabs" role="tablist"  id="myTab">
+	    				<li id="tabunread"  class="active"><a href="#home" role="tab" data-toggle="tab"><p class="pp">未读消息</p></a></li>
+	    				<li id="tabhistory"><a href="#profile"  role="tab" data-toggle="tab"><p class="pp">已读消息</p></a></li>
+	    				<li id="tabsend" ><a href="#messages"  role="tab" data-toggle="tab"><p class="pp">发送消息</p></a></li>
+    				</ul>
+  				</div>	
   			</div>
-			<div class="col-sm-9" >
+			<div class="col-sm-9" style="left:5px">
   				<div class="tab-content" style="padding-left:100px;padding-top:0px;">
     				<div class="tab-pane active" id="home">
     					<div >							
@@ -390,22 +408,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</c:if>
 								
 									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  										<div class="modal-dialog" style="margin-top:200">
+  										<div class="modal-dialog" style="margin-top:200px">
    											<div class="modal-content">
       												<div class="modal-header">
         												<button type="button" class="close" data-dismiss="modal">
         													<span aria-hidden="true">&times;</span>
         													<span class="sr-only">Close</span>
         												</button>
-        												<h6 class="modal-title" id="myModalLabel">发件人：</h6>
-        												<p id="modal-msg-sentPhone"></p>
-        												<h6 class="modal-title" >发送时间：</h6>
-        												<p id="modal-msg-sentDate"></p>
+        												<h6 class="modal-title" id="myModalLabel" style="font-weight:bold">发件人：</h6>
+        												<p class="modal-msg-sentPhone"></p>
+        												<h6 class="modal-title" style="font-weight:bold">发送时间：</h6>
+        												<p class="modal-msg-sentDate"></p>
         												<!-- <h6 class="modal-title" id="myModalbabel">发送时间：</h6> -->
       												</div>
       												<div class="modal-body">
-        												<h4>内容：</h4>
-        												<p id="modal-msg-content"></p>
+        												<h4 style="font-weight:bold">内容：</h4>
+        												<p class="modal-msg-content"></p>
         												
 													</div>
 													<div class="modal-footer">
@@ -428,13 +446,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
     				</div>
     				<div class="tab-pane" id="profile">
-    					<table class="table table-hover table-striped" style="border:#d9d9d9 1px solid">
+    					<form >
+    					<table class="table table-hover ctltable table-striped" style="border:#d9d9d9 1px solid">
     						<thead>
     							<tr>
-	    							<!-- <th><input type="checkbox" value="" name="" disabled></th> -->
-	    							<th>发送人</th>
-	    							<th>内容</th>
-	    							<th>发送时间</th>
+	    							<th style="width:12.5%;height:35px"><input type="checkbox" value="" name="" disabled></th>
+	    							<th style="width:22.8%;height:35px">发送人</th>
+	    							<th style="width:41.0%;height:35px">内容</th>
+	    							<th style="width:25.7%;height:35px">发送时间</th>
     							</tr>
     						</thead>
     						<tbody id="profile-body">
@@ -444,9 +463,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     								<td class="msg-content" data-toggle="modal" style="cursor:pointer" data="123123"></td>
     								<td class="msg-sentData"></td>
     							</tr>
+    							
+    							<div class="modal fade" id="hisModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  										<div class="modal-dialog" style="margin-top:200px">
+   											<div class="modal-content">
+      												<div class="modal-header">
+        												<button type="button" class="close" data-dismiss="modal">
+        													<span aria-hidden="true">&times;</span>
+        													<span class="sr-only">Close</span>
+        												</button>
+        												<h6 class="modal-title" id="myModalLabel" style="font-weight:bold">发件人：</h6>
+        												<p class="modal-msg-sentPhone"></p>
+        												<h6 class="modal-title" style="font-weight:bold" >发送时间：</h6>
+        												<p class="modal-msg-sentDate"></p>
+        												<!-- <h6 class="modal-title" id="myModalbabel">发送时间：</h6> -->
+      												</div>
+      												<div class="modal-body">
+        												<h4 style="font-weight:bold">内容：</h4>
+        												<p class="modal-msg-content"></p>
+        												
+													</div>
+													<div class="modal-footer">
+														<button type="submit" name="submitMessage" class="btn btn-primary" data-dismiss="modal">确定</button>
+      												</div>
+    										</div>
+  										</div>
+									</div>
+									<!-- 点击站内信显示具体内容 END-->
     						</tbody>
+    						
+    						
+    						
     					</table>
-    					
+    					<div>
+    						<input id="his-tagall" type="button" value="标记全部" />
+    						<input id="his-ctag" type="button" value="取消标记" />
+    						<input id="his-delall" type="button" value="删除" />
+    					</div>
+    					</form>
     					<div id="Pagination" class="pagination">
     									
     					</div>
@@ -472,7 +526,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      									<table align="center" id="inputForm">
 											<tr align=center>
 												<td width="200">
-													<select size=6 name="list1" id="recv_names" style="width:175" class="form-control">
+													<select size=8 name="list1" id="recv_names" style="width:175" class="form-control">
 														<!-- <option value="">15995021082</option>
 														<option value=2>15995021081</option> -->
 													</select>
@@ -483,7 +537,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<input id="dels" type="button"  class="btn btn-default" value="<<<删 除" onclick="del()">
 												</td>
 												<td width="200">
-													<select name="seqItem" autofocus id="seqItem" size="6" style="width:175" multiple class="form-control">
+													<select name="seqItem" autofocus id="seqItem" size="8" style="width:175" multiple class="form-control">
 													</select>
 												</td>
 											</tr>
@@ -547,9 +601,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     {
                     	document.all.seqItem.options[document.all.seqItem.options.length] = new Option(document.all.recv_names.options[i].text,document.all.recv_names.options[i].value);
                     }
-                    $($(this).parents("div").find("#recv_names").children("option")).each(function(){
-                    $(this).get(0).remove();
-                    });
+                  //  $($(this).parents("div").find("#recv_names").children("option")).each(function(){
+                   // $(this).get(0).remove(0);
+                  // });
+                  var obj = document.getElementById("recv_names");
+                  for(var i=obj.length;i>=0;i--){
+                	  obj.options[i]=null;
+                  }
+                  
                 }
                 else
                 {
@@ -562,9 +621,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     {
                     	document.all.recv_names.options[document.all.recv_names.options.length] = new Option(document.all.seqItem.options[i].text,document.all.seqItem.options[i].value);
                     }
-                    $($(this).parents("div").find("#seqItem").children("option")).each(function(){
-                    $(this).get(0).remove();
-                    });
+                   // $($(this).parents("div").find("#seqItem").children("option")).each(function(){
+                   // $(this).get(0).remove();
+                   // });
+                    var obj = document.getElementById("seqItem");
+                    for(var i=obj.length;i>=0;i--){
+                  	  obj.options[i]=null;
+                    }
                 }
             });
         });
@@ -630,6 +693,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		add_singer(obj1,value,text)
 		remove_singer(obj2,index)
 	}
+
 </script>	
 	</div>
     <%@ include file="../footer.jsp" %>

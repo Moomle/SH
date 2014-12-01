@@ -17,6 +17,7 @@ import ffof.express.model.Pager;
 import ffof.express.model.User;
 import ffof.express.service.IMessageService;
 import ffof.express.service.IUserService;
+import ffof.express.utils.MD5Util;
 
 
 @Controller
@@ -87,11 +88,12 @@ public class UserController {
 	@RequestMapping(value="/{cPhone}/update", method=RequestMethod.POST, params="ajax")
 	@ResponseBody
 	public String ajaxUpdate(String telephone, String name, String password, String location, String isAdmin){
-		System.out.println("tel:"+telephone+",name:"+name+",pwd:"+password+",location:"+location+",isAdmin:"+isAdmin);
+		//System.out.println("tel:"+telephone+",name:"+name+",pwd:"+password+",location:"+location+",isAdmin:"+isAdmin);
 		User u = userService.getByPhone(telephone);
 		u.setName(name);
-		if (password != null){
-			u.setPassword(password);
+		if (!password.equals(u.getPassword())){
+			String psw = MD5Util.md5Signature(password);
+			u.setPassword(psw);
 		}
 		u.setLocation(location);
 		u.setIsAdmin(Integer.valueOf(isAdmin));

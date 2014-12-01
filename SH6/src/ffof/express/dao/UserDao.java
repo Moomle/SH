@@ -47,10 +47,7 @@ public class UserDao implements IUserDao {
 			query.executeUpdate();
 			*/
 			User u = getByPhone(telephone);
-			System.out.println(telephone);
-			
 			session.delete(u);
-			System.out.println("delete," + u.getId());
 			tx.commit();
 			//System.out.println("added!");
 		} catch(Exception e) {
@@ -170,7 +167,7 @@ public class UserDao implements IUserDao {
 			pager.setTotalCount(totalCount);
 			pager.setData(list);
 			pager.setPageSize(Constant.SIZE_OF_PAGE);
-			System.out.println(pager.toString());
+			//System.out.println(pager.toString());
 			tx.commit();
 			return pager;
 			
@@ -197,9 +194,8 @@ public class UserDao implements IUserDao {
 					break;
 				}
 			}
-			System.out.println("UserDao: findAllExceptSelf:"+list.size());
+			//System.out.println("UserDao: findAllExceptSelf:"+list.size());
 			list.remove(u2del);
-			System.out.println("UserDao: findAllExceptSelf:"+list.size());
 			tx.commit();
 			return list;
 			//System.out.println("added!");

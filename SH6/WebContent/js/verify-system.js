@@ -8,11 +8,11 @@
 				cpostContent();
 			});
 			
-			$("#seqItem").focus(function(){
-				$("#seqItem_error").hide();
-			}).blur(function(){
-				cseqItem();
-			});
+//			$("#seqItem").focus(function(){
+//				$("#seqItem_error").hide();
+//			}).blur(function(){
+//				cseqItem();
+//			});
 //***********站内信******************
 			$("#submsg").click(function(){
 				cseqItem();
@@ -35,6 +35,11 @@
 			if(postContent == ''){
 				$("#postContent").show;
 				$("#postContent_error").show().find(".err-txt").text("内容不能为空");
+				ispostContent=false;
+			}
+			else if(postContent.length > 255){
+				$("#postContent").show;
+				$("#postContent_error").show().find(".err-txt").text("内容长度不能超过255");
 				ispostContent=false;
 			}
 			else{

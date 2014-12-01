@@ -2,6 +2,8 @@ package ffof.express.model;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Length;
+
 
 /**
  * @author Abner
@@ -44,13 +46,14 @@ public class Order {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
 	public String getOrd_num() {
 		return ord_num;
 	}
 	public void setOrd_num(String ord_num) {
 		this.ord_num = ord_num;
 	}
-	
+	@Length(min=11, max=11,message="长度必须为11")
 	public String getCur_phone() {
 		return cur_phone;
 	}

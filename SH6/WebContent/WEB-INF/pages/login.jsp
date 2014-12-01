@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="<%=path %>/css/reset_style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%=path %>/js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="<%=path %>/js/common.js" ></script>
+    <script type="text/javascript" src="<%=path %>/js/placeMe.js" ></script>
     <style>
     .ui-err .arrow, .ui-err .err-txt, .ui-err-line .arrow, .ui-err-line .err-txt, .ui-err-dn .arrow, .ui-err-dn .err-txt, .quyu_msg {
         background: no-repeat;
@@ -101,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 
                             </li>
                             <li class="clearfix">
-                            <label class="savePw"><input type="" value="" name="rememberme" id="rememberme"></label>
+                            <label class="savePw"><input type="" value="" name="rememberme" id="rememberme" style="display:none"></label>
                             	<!-- <a style="color:#666;"  class="">忘记密码?</a> -->
                             </li>
                             <li class="login-btn">

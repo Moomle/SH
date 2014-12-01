@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,11 +17,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="<%=path %>/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=path %>/css/common1.css" rel="stylesheet" type="text/css" />
     <link href="<%=path %>/css/common.css" rel="stylesheet" type="text/css" />
-    <link href="<%=path %>/css/pagination.css" rel="stylesheet" type="text/css" />   
+    <link href="<%=path %>/css/pagination.css" rel="stylesheet" type="text/css" />  
+    <link href="<%=path %>/css/tabbable.css" rel="stylesheet" type="text/css" />  
   	<script type="text/javascript" src="<%=path %>/js/jquery-1.8.2.js"></script>
   	<script type="text/javascript" src="<%=path %>/js/bootstrap.min.js" ></script>
     <script type="text/javascript" src="<%=path %>/js/common.js" ></script>
     <script type="text/javascript" src="<%=path %>/js/jquery.pagination.js" ></script>
+    <script type="text/javascript" src="<%=path %>/js/placeMe.js" ></script>
+    <script type="text/javascript" src="<%=path %>/js/html5shiv.min.js"></script>
+    <%-- <script type="text/javascript" src="<%=path %>/css/bootstrap-ie7.css"></script> --%>
+    <script type="text/javascript" src="<%=path %>/js/respond.min.js"></script>
   	<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
   	<style>
 	.user-register .ui-err{height:40px;line-height:40px;}
@@ -51,6 +56,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	.service .sv-checkbox{margin:0 10px 0 0px;}
 	.user-register li div{
 	height:42px}
+	.pp{
+		color:#08c;
+		text-align:center;
+		font-size:15px}
     </style>
     <script>
 	var fullPath = location.href;
@@ -106,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					$("#tbody").append("<tr id='"+data[i].telephone+"'><td>"
 							+data[i].telephone+"</td><td><input id='"+data[i].telephone+"' name='name' type='text' value='"
 							+data[i].name+"' /></td><td><input id='"+data[i].telephone+"' name='location' type='text' value='"
-							+data[i].location+"' /></td><td><input id='"+data[i].telephone+"' name='password' type='text' value='' data="
+							+data[i].location+"' /></td><td><input id='"+data[i].telephone+"' name='password' type='text' value='' placeholder="
 							+data[i].password+" /></td><td><input id='"+data[i].telephone+"' name='isAdmin' type='text' value='"+
 							+data[i].isAdmin+
 							"' /><td><input  class='update' type='button' value='更新' />/<input class='delete' type='button' value='删除' /></td></tr>");
@@ -200,12 +209,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="main" style="height:500px">
     	<div class="row" style="margin-top:20px">
   			<div class="col-sm-2" style="left:55px">
-    			<ul class="nav nav-tabs" role="tablist" style="width:98px;height:42px;" id="myTab">
-    				<li style="width:98px;height:42px" class="active"><a href="#home" role="tab" data-toggle="tab" >注册会员</a></li>
-    				<li id="userMng" style="width:98px;height:42px"><a href="#profile"  role="tab" data-toggle="tab">用户管理</a></li>
-    			</ul>
+  				<div class="tabbable tabs-left">
+  					<ul class="nav nav-tabs" role="tablist"  id="myTab">
+	    				<li  class="active">
+	    					<a href="#home" role="tab" data-toggle="tab" >
+	    						<p class="pp">注册会员</p>
+	    					</a>
+	    				</li>
+	    				<li id="userMng" >
+	    					<a href="#profile"  role="tab" data-toggle="tab">
+	    						<p class="pp">用户管理</p>
+	    					</a>
+	    				</li>
+    				</ul>
+  				</div>
+    			
   			</div>
-			<div class="col-sm-10" style="width:800px;">
+			<div class="col-sm-10" style="width:800px;left:20px">
   				<div class="tab-content" style="padding-top:0px;">
     				<div class="tab-pane active" id="home">
     					<form method="post" action="" id="form">

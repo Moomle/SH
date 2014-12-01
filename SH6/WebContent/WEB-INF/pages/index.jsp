@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </style>
   <body>
     <%@ include file="userTopIndex.jsp" %>
-    <div class="main">
+    <div class="main" style="height:500px">
     	<div class="index_left">
     		<form  id="index_form" name="QueryForm" action="<%=path %>/order/query " method="post">
     			<div class="index_left_form">
