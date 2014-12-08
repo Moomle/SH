@@ -147,7 +147,7 @@ public class UserController {
 		//model.addAttribute("loginUser",u);
 		//User user = (User)model.asMap().get("loginUser");
 		//如果是管理员则进入userIndex，非管理员跳转回主页
-		return "user/userIndex";
+		return "admin/index";
 	}
 	
 }

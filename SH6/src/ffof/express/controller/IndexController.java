@@ -20,6 +20,7 @@ import ffof.express.service.IUserService;
 
 @Controller
 @SessionAttributes("loginUser")
+//@RequestMapping("/admin")
 public class IndexController {
 	
 	private IUserService userService;
@@ -113,7 +114,7 @@ public class IndexController {
 	public String login(String telephone, String password, Model model){
 		User u = userService.login(telephone, password);
 		model.addAttribute("loginUser", u);
-		return "redirect:user/"+u.getTelephone();
+		return "redirect:user/"+telephone;
 	}
 	
 	@RequestMapping(value="/logout")

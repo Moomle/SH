@@ -55,7 +55,7 @@ public class MessageController {
 		if (!u.getTelephone().equals(cPhone)) throw new MessageException("没有权限");
 		List<Message> list = messageService.getUnRead(u.getTelephone());
 		model.addAttribute("u_msgs", list);
-		return "msg/pm";
+		return "admin/msg/msg";
 	}
 	
 	//获取未读消息，分页
