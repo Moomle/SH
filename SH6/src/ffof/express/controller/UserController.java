@@ -118,6 +118,16 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping("/manage")
+	public String getUserManagePage(Model model){
+		User u = (User) model.asMap().get("loginUser");
+		if (u!=null && u.getIsAdmin() == 1){
+			return "admin/user/userMgm";
+		} else {
+			throw new UserException("没有权限！");
+		}
+	}
+	
 	@RequestMapping(value="/{cPhone}/delete", method=RequestMethod.GET, params="ajax")
 	@ResponseBody
 	public String ajaxDelete(@PathVariable String cPhone, String telephone){
