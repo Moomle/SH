@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.google.code.kaptcha.Constants;
+
 import ffof.express.exception.UserException;
 import ffof.express.model.User;
 import ffof.express.service.IUserService;
@@ -91,7 +93,7 @@ public class IndexController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(Model model){
 		model.addAttribute(new User());
-		return "login";
+		return "admin/login";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET, params="ajax")
@@ -111,10 +113,16 @@ public class IndexController {
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(String telephone, String password, Model model){
-		User u = userService.login(telephone, password);
-		model.addAttribute("loginUser", u);
-		return "redirect:user/"+telephone;
+	public String login(String telephone, String password, String kaptcha,HttpServletRequest request, Model model){
+		String code = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		if(code.toLowerCase().equals(kaptcha.toLowerCase())){
+			User u = userService.login(telephone, password);
+			model.addAttribute("loginUser", u);
+			return "redirect:user/"+telephone;
+		} else {
+			throw new UserException("验证码错误");
+		}
+		
 	}
 	
 	@RequestMapping(value="/logout")
@@ -131,8 +139,8 @@ public class IndexController {
 		return "redirect:/msg/"+u.getTelephone();
 	}
 	
-	@RequestMapping("/test")
+	@RequestMapping("/navbar")
 	public String testjson(){
-		return "order/testjson";
+		return "admin/navbar";
 	}
 }

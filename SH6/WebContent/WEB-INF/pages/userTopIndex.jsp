@@ -35,6 +35,9 @@
     					<a href="<%=pathTop %>/user/${ sessionScope.loginUser.telephone }/manage">
     						<span>用户管理</span>
     					</a>
+    					<a href="<%=pathTop%>/admin">
+    					    <span>内容管理</span>
+    					</a>
     					</c:if>
     				</li>
     				<c:if test="${!empty sessionScope.loginUser }">

@@ -6,7 +6,7 @@
 	
 	
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/pages/admin/login.jsp</welcome-file>
+		<welcome-file>/WEB-INF/pages/front/index.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<listener>
@@ -31,14 +31,24 @@
 	
 	<filter>
 		<filter-name>LoginFilter</filter-name>
-		<filter-class>ffof.express.controller.LoginFilter</filter-class>
+		<filter-class>ffof.express.filter.LoginFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>LoginFilter</filter-name>
 		<url-pattern>/user/*</url-pattern>
 		<url-pattern>/msg/*</url-pattern>
 		<url-pattern>/order/manage</url-pattern>
+		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- <filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>ffof.express.filter.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping> -->
 
  	<filter>
 		<filter-name>encodingFilter</filter-name>

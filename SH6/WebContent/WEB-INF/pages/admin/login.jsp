@@ -50,6 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script>
       $(document).ready(function() {
         //Login.init()
+    	  $('#kaptchaImage').click(function () {//生成验证码  
+              $(this).hide().attr('src', '<%=path %>/kaptchar?' + Math.floor(Math.random()*100) ).fadeIn(); 
+    	  });    
+           
       });
     </script>
   </head>
@@ -87,6 +91,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <input type="password" name="password" class="form-control" placeholder="密码"
               data-rule-required="true" data-msg-required="请输入密码."
               />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-icon">
+              <label>
+                <input type="text" name="kaptcha" class="form-control" placeholder="验证码" data-rule-required="true" data-msg-required="请输入验证码" style="width:40%"/>
+              </label>
+              <img class="" src="<%=path %>/kaptchar" id="kaptchaImage"  style="margin-bottom: -3px;" width="90px" height="30px"/>
             </div>
           </div>
           <div class="form-actions">

@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String npath = request.getContextPath();
 String nbasePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+npath+"/";
 %>
-<script>
-	//异步向服务器轮训未读消息，并显示
-	
-</script>
 <header class="header navbar navbar-fixed-top" role="banner">
       <div class="container">
         <ul class="nav navbar-nav">

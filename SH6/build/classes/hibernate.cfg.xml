@@ -7,17 +7,20 @@
         <!-- Database connection settings -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/sh</property>
-        <property name="connection.username">hhu</property>
-        <property name="connection.password">admin</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">ffof</property>
         
-        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
         
         <property name="show_sql">true</property>
 		
 		<mapping resource="ffof/express/model/User.hbm.xml"/>
 		<mapping resource="ffof/express/model/Message.hbm.xml"/>
         <mapping resource="ffof/express/model/Order.hbm.xml" />
-        <mapping resource="ffof/express/model/Location.hbm.xml"/>        
+        <mapping resource="ffof/express/model/Location.hbm.xml"/>
+        <mapping resource="ffof/express/model/Article.hbm.xml"/>  
+        <mapping resource="ffof/express/model/Channel.hbm.xml"/>  
+        <mapping resource="ffof/express/model/Column.hbm.xml"/>       
     </session-factory>
 </hibernate-configuration>

@@ -90,7 +90,7 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                       </a>
                       <ul class="sub-menu">
                         <li>
-                          <a href="javascript:void(0);">
+                          <a href="<%=spath %>/content/manage">
                             <i class="icon-folder-open">
                             </i>
                             城际快运专线
@@ -137,28 +137,28 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                   </a>
                   <ul class="sub-menu">
                     <li>
-                      <a href="javascript:void(0);">
+                      <a href="<%=spath %>/admin/column/7?curPageNum=1">
                         <i class="icon-folder-open">
                         </i>
                         企业介绍
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void(0);">
+                      <a href="<%=spath %>/admin/column/8?curPageNum=1">
                         <i class="icon-folder-open">
                         </i>
                         企业理念
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void(0);">
+                      <a href="<%=spath %>/admin/column/9?curPageNum=1">
                         <i class="icon-folder-open">
                         </i>
                         企业战略
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void(0);">
+                      <a href="<%=spath %>/admin/column/10?curPageNum=1">
                         <i class="icon-folder-open">
                         </i>
                         组织架构
@@ -174,13 +174,13 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                   </a>
                   <ul class="sub-menu">
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/11?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	行业新闻
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/12?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	企业快讯
                   	  </a>
@@ -195,31 +195,31 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                   </a>
                   <ul class="sub-menu">
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/1?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	城际快运专线
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/2?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	公路货物运输
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/3?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  仓储管理服务
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/5?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	同城配送服务
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/6?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	国际货运代理
                   	  </a>
@@ -234,19 +234,19 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                   </a>
                   <ul class="sub-menu">
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/13?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	教育培训
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/14?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	员工风采
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/15?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	加入我们
                   	  </a>
@@ -261,25 +261,25 @@ String sbasePath = request.getScheme()+"://"+request.getServerName()+":"+request
                   </a>
                   <ul class="sub-menu">
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/16?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	总市场部
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/17?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	   扬州项目部
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/18?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	南京项目部
                   	  </a>
                   	</li>
                   	<li>
-                  	  <a href="javascript:void(0);">
+                  	  <a href="<%=spath %>/admin/column/19?curPageNum=1">
                   	  	<i class="icon-folder-open"></i>
                   	  	镇江项目部
                   	  </a>
